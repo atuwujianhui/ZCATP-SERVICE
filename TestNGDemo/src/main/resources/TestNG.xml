@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<suite name="testNgDemo">
+    <test name="Login">
+        <classes>
+            <class name="com.fjzcit.testngdemo.suite.SuiteConfig" />
+            <class name="com.fjzcit.testngdemo.suite.Login" />
+        </classes>
+    </test>
+
+    <test name="Pay">
+        <classes>
+            <class name="com.fjzcit.testngdemo.suite.SuiteConfig" />
+            <class name="com.fjzcit.testngdemo.suite.Pay" />
+        </classes>
+    </test>
+</suite>

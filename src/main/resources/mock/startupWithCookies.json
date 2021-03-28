@@ -1,0 +1,39 @@
+[
+  {
+    "description": "模拟一个带Cookie的Get请求！",
+    "request": {
+      "uri": "/get/with/cookies",
+      "method": "get",
+      "cookies": {
+        "login": "true"
+      }
+    },
+    "response": {
+      "text": "这是一个带Cookie的Get请求！"
+    }
+  },
+  {
+    "description": "模拟一个带Cookie的Post请求！",
+    "request": {
+      "uri": "/post/with/cookies",
+      "method": "post",
+      "headers": {
+        "Context-type": "application/json"
+      },
+      "cookies": {
+        "login": "true"
+      },
+      "json": {
+        "name": "Atu",
+        "age": "24"
+      }
+    },
+    "response": {
+      "status": 200,
+      "json": {
+        "code": "0",
+        "msg": "这是一个带Cookie的Post请求！"
+      }
+    }
+  }
+]

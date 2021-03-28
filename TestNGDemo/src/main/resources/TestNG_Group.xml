@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<suite name="testNgGroup">
+<!--    <test name="runAll">-->
+<!--        <classes>-->
+<!--            <class name="com.fjzcit.testngdemo.groups.GroupClass01" />-->
+<!--            <class name="com.fjzcit.testngdemo.groups.GroupClass02" />-->
+<!--            <class name="com.fjzcit.testngdemo.groups.GroupClass03" />-->
+<!--        </classes>-->
+<!--    </test>-->
+
+    <test name="runGroup">
+        <groups>
+            <run>
+                <include name="student" />
+                <include name="teacher" />
+            </run>
+        </groups>
+        <classes>
+            <class name="com.fjzcit.testngdemo.groups.GroupClass01" />
+            <class name="com.fjzcit.testngdemo.groups.GroupClass02" />
+            <class name="com.fjzcit.testngdemo.groups.GroupClass03" />
+        </classes>
+    </test>
+</suite>

@@ -1,0 +1,27 @@
+[
+  {
+    "description": "模拟一个带Cookie的Get请求",
+    "request": {
+      "uri": "/redirect"
+    },
+    "redirectTo": "http://www.baidu.com"
+  },
+  {
+    "description": "重定向到内部链接！",
+    "request": {
+      "uri": "/redirectToInnerURI",
+      "method": "get"
+    },
+    "redirectTo": "/innerURI"
+  },
+  {
+    "description": "这是一个内部链接！",
+    "request": {
+      "uri": "/innerURI",
+      "method": "get"
+    },
+    "response": {
+      "text": "内部重定向成功！"
+    }
+  }
+]

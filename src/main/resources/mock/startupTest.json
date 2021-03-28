@@ -1,0 +1,11 @@
+[
+  {
+    "description": "Hello Mock!",
+    "request": {
+      "uri": "/helloMock"
+    },
+    "response": {
+      "text": "This is the first Moco framework demo!"
+    }
+  }
+]

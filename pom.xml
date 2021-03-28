@@ -5,7 +5,11 @@
     <groupId>com.fjzcit</groupId>
     <artifactId>zcatp</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <modules>
+        <module>TestNGDemo</module>
+        <module>ExtentReportDemo</module>
+    </modules>
+    <packaging>pom</packaging>
     <name>zcatp</name>
     <description>Demo project for Spring Boot</description>
 
