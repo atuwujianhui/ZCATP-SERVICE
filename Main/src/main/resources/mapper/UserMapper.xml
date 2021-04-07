@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fjzcit.zcatp.mapper.UserMapper">
+
+    <select id="getAllUser" resultType="com.fjzcit.zcatp.model.pub.User">
+        select * from sys_user
+    </select>
+
+    <select id="getUserCount" resultType="Integer">
+        select count(*) from sys_user
+    </select>
+
+    <insert id="addUser" parameterType="com.fjzcit.zcatp.model.pub.User">
+        insert into sys_user(id, name, age, address)
+        values(#{id}, #{name}, #{age}, #{address})
+    </insert>
+
+    <update id="updateUserById" parameterType="com.fjzcit.zcatp.model.pub.User">
+        update sys_user set name = #{name}, age = #{age}
+        where id = #{id}
+    </update>
+
+    <delete id="deleteUserById" parameterType="Integer">
+        delete from sys_user where id = #{id}
+    </delete>
+
+</mapper>

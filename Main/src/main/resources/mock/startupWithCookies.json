@@ -1,8 +1,21 @@
 [
   {
+    "description": "这是一个获取Cookies的Get请求",
+    "request": {
+      "uri": "/getCookies",
+      "method": "get"
+    },
+    "response": {
+      "text": "成功获取Cookies！",
+      "cookies": {
+        "login": "true"
+      }
+    }
+  },
+  {
     "description": "模拟一个带Cookie的Get请求！",
     "request": {
-      "uri": "/get/with/cookies",
+      "uri": "/getWithCookies",
       "method": "get",
       "cookies": {
         "login": "true"
@@ -15,10 +28,10 @@
   {
     "description": "模拟一个带Cookie的Post请求！",
     "request": {
-      "uri": "/post/with/cookies",
+      "uri": "/postWithCookies",
       "method": "post",
       "headers": {
-        "Context-type": "application/json"
+        "content-type": "application/json"
       },
       "cookies": {
         "login": "true"
@@ -31,7 +44,7 @@
     "response": {
       "status": 200,
       "json": {
-        "code": "0",
+        "code": "10000",
         "msg": "这是一个带Cookie的Post请求！"
       }
     }
