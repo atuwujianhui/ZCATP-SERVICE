@@ -1,4 +1,4 @@
-package com.fjzcit.zcatp.common;
+package com.fjzcit.zcatp.common.constant;
 
 public class JMeterConstant {
 

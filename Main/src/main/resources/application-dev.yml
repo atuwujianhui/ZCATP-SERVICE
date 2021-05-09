@@ -43,6 +43,8 @@ spring:
     hibernate:
       # 配置开启自动更新表结构
       ddl-auto: update
+#      dialect:
+#        storage_engine: innodb
 
 ## mybatis 配置（xml文件目录结构与接口文件完全一致无需该配置，只需要在application中配置扫描目录）
 mybatis:

@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import com.fjzcit.zcatp.common.JMeterConstant;
+import com.fjzcit.zcatp.common.constant.JMeterConstant;
 import org.apache.jmeter.assertions.ResponseAssertion;
 import org.apache.jmeter.assertions.gui.AssertionGui;
 import org.apache.jmeter.config.Arguments;
@@ -25,7 +25,6 @@ import org.apache.jmeter.threads.gui.ThreadGroupGui;
 import org.apache.jmeter.util.JMeterUtils;
 import org.apache.jmeter.visualizers.ViewResultsFullVisualizer;
 import org.apache.jorphan.collections.HashTree;
-import org.springframework.util.ResourceUtils;
 
 public class JMeterService {
     public static HashTree testPlanTree;
