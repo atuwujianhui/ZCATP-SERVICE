@@ -57,7 +57,7 @@ public class TData {
     // 状态
     @Column(name = "state",
             nullable = false,
-            columnDefinition = "int default 0 comment '状态，0：无效；1：有效。'")
+            columnDefinition = "int default 1 comment '状态，0：无效；1：有效。'")
     private Integer state;
 
     // 备注

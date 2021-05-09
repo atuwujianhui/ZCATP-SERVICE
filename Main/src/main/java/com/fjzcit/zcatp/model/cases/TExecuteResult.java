@@ -28,6 +28,9 @@ public class TExecuteResult {
             columnDefinition = "int comment '执行批次ID'"
     )
     private Integer batchId;
+//    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    @JoinColumn(name = "batch_id")
+//    private TExecuteBatch executeBatch;
 
     // 所属迭代/增量
     @Column(name = "iteration_id",
@@ -55,6 +58,13 @@ public class TExecuteResult {
     )
     private Integer caseId;
 
+    // 预期响应结果类型
+    @Column(name = "expected_response_type",
+            nullable = true,
+            columnDefinition = "tinyint default 0 comment '预期响应结果类型，0：文本；1：json'"
+    )
+    private String expectedResponseType;
+
     // 预期响应内容
     @Column(name = "expected_response_content",
             nullable = true,
@@ -72,7 +82,7 @@ public class TExecuteResult {
     // 执行结果
     @Column(name = "execute_result",
             nullable = true,
-            columnDefinition = "tinyint comment '执行结果，0：未执行；1：通过；2：不通过；'"
+            columnDefinition = "tinyint comment '执行结果，0：不通过、1：通过；'"
     )
     private Integer executeResult;
 }

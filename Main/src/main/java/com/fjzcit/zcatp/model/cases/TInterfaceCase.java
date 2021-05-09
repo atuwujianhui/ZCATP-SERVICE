@@ -35,26 +35,32 @@ public class TInterfaceCase {
     private String name;
 
     // 所属迭代/增量
-    @Column(name = "iteration_id",
-            nullable = false,
-            columnDefinition = "int comment '所属迭代/增量'")
-    private Integer iterationId;
+//    @Column(name = "iteration_id",
+//            nullable = true,
+//            columnDefinition = "int comment '所属迭代/增量'")
+//    private Integer iterationId;
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "iteration_id")
+    private TIteration iteration;
 
     // 所属系统
-    @Column(name = "system_id",
-            nullable = false,
-            columnDefinition = "int comment '所属系统'")
-    private Integer systemId;
+//    @Column(name = "system_id",
+//            nullable = false,
+//            columnDefinition = "int comment '所属系统'")
+//    private Integer systemId;
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "system_id")
+    private TSystem system;
 
     // 所属模块
     @Column(name = "module_id",
-            nullable = false,
+            nullable = true,
             columnDefinition = "int comment '所属模块'")
     private Integer moduleId;
 
     // 所属功能
     @Column(name = "function_id",
-            nullable = false,
+            nullable = true,
             columnDefinition = "int comment '所属功能'")
     private Integer functionId;
 
@@ -77,12 +83,12 @@ public class TInterfaceCase {
     )
     private Integer interfaceType;
 
-    // 接口URL
-    @Column(name = "url",
+    // 接口URI
+    @Column(name = "uri",
             nullable = false,
-            columnDefinition = "varchar(256) comment '接口URL'"
+            columnDefinition = "varchar(256) comment '接口URI'"
     )
-    private String url;
+    private String uri;
 
     // 请求方法
     @Column(name = "method",
@@ -100,13 +106,14 @@ public class TInterfaceCase {
 
     // 媒体类型，即MediaType，也叫MIME类型，使用POST
     /**
+     * get请求头中没有“content-type”这个字段
      * 0: application/x-www-form-urlencoded
      * 1: application/json
      * 2: multipart/form-data
      * 3: text/xml
      */
     @Column(name = "content_type",
-            nullable = false,
+            nullable = true,
             columnDefinition = "tinyint default 0 comment '媒体类型'"
     )
     private Integer contentType;
@@ -118,10 +125,10 @@ public class TInterfaceCase {
     )
     private String params;
 
-    // 预期结果类型
+    // 预期响应结果类型
     @Column(name = "expected_response_type",
             nullable = true,
-            columnDefinition = "tinyint comment '预期结果类型'"
+            columnDefinition = "tinyint default 0 comment '预期响应结果类型，0：文本；1：json'"
     )
     private String expectedResponseType;
 
@@ -135,7 +142,7 @@ public class TInterfaceCase {
     // 是否更新cookie，一般用于登录
     @Column(name = "update_cookie",
             nullable = false,
-            columnDefinition = "tinyint default 1 comment '是否使用当前操作返回的Cookie更新本次系统Cookie，0：不更新'")
+            columnDefinition = "tinyint default 0 comment '是否使用当前操作返回的Cookie更新本次系统Cookie，0：不更新，1：更新'")
     private Integer updateCookie;
 
     // 状态

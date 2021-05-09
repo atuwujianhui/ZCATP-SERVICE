@@ -30,10 +30,13 @@ public class TExecuteBatch {
     private String name;
 
     // 所属迭代/增量
-    @Column(name = "iteration_id",
-            nullable = false,
-            columnDefinition = "int comment '所属迭代/增量'")
-    private Integer iterationId;
+//    @Column(name = "iteration_id",
+//            nullable = false,
+//            columnDefinition = "int comment '所属迭代/增量'")
+//    private Integer iterationId;
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "iteration_id")
+    private TIteration iteration;
 
     // 所属系统
     @Column(name = "system_id",

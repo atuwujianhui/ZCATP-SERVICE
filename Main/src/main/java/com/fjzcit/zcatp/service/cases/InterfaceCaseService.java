@@ -39,6 +39,7 @@ public class InterfaceCaseService {
      * @return
      */
     public List<TInterfaceCase> findByIterationId(Integer iterationId) {
-        return this.interfaceCaseRepository.findByIterationIdId(iterationId);
+//        return this.interfaceCaseRepository.findByIterationIdId(iterationId);
+        return this.interfaceCaseRepository.findByIteration_idAndState(iterationId, 1);
     }
 }
