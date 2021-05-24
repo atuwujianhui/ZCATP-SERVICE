@@ -118,19 +118,26 @@ public class TInterfaceCase {
     )
     private Integer contentType;
 
-    // 请求参数，根据“content-type”，选择不同的类型
-    @Column(name = "params",
+    // 请求参数来源，包括：系统内保存数据，外部文件数据等，待确认
+    @Column(name = "parameter_source",
             nullable = true,
-            columnDefinition = "varchar(128) comment '请求参数'"
+            columnDefinition = "varchar(128) comment '请求参数来源，包括：系统内保存数据，外部文件数据等，待确认'"
     )
-    private String params;
+    private String parameter_source;
+
+    // 请求参数，目前暂时全部设计为JSON格式保存，前端以表单形式维护，参考Postman
+    @Column(name = "parameter",
+            nullable = true,
+            columnDefinition = "varchar(128) comment '请求参数，目前暂时全部设计为JSON格式保存，前端以表单形式维护，参考Postman'"
+    )
+    private String parameter;
 
     // 预期响应结果类型
     @Column(name = "expected_response_type",
             nullable = true,
             columnDefinition = "tinyint default 0 comment '预期响应结果类型，0：文本；1：json'"
     )
-    private String expectedResponseType;
+    private Integer expectedResponseType;
 
     // 预期结果
     @Column(name = "expected_response_content",

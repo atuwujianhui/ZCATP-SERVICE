@@ -1,36 +1,31 @@
 package com.fjzcit.zcatp.common.constant;
 
-import com.fjzcit.zcatp.common.constant.http.RequestMethodEnum;
-
-// 接口类型
-public enum InterfaceTypeEnum {
-
-    HTTP(0, "HTTP"),
-    SOCKET(1, "SOCKET"),
-    WEBSERVICE(2, "WEBSERVICE");
+public enum ResponseTypeEnum {
+    STRING(0, "字符串"),
+    JSON(1, "JSON");
 
     // 成员变量
     private int code;
     private String name;
 
     // 构造方法
-    private InterfaceTypeEnum(int code, String name) {
+    private ResponseTypeEnum(int code, String name) {
         this.code = code;
         this.name = name;
     }
 
     // 普通方法
     public static String getName(int code) {
-        for (InterfaceTypeEnum c : InterfaceTypeEnum.values()) {
-            if (c.getCode() == code) {
-                return c.name;
+        for (ResponseTypeEnum e : ResponseTypeEnum.values()) {
+            if (e.getCode() == code) {
+                return e.name;
             }
         }
         return null;
     }
 
-    public static InterfaceTypeEnum getEnum(int code) {
-        for (InterfaceTypeEnum e : InterfaceTypeEnum.values()) {
+    public static ResponseTypeEnum getEnum(int code) {
+        for (ResponseTypeEnum e : ResponseTypeEnum.values()) {
             if (e.getCode() == code) {
                 return e;
             }

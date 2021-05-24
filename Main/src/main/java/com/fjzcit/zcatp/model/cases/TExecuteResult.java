@@ -63,7 +63,7 @@ public class TExecuteResult {
             nullable = true,
             columnDefinition = "tinyint default 0 comment '预期响应结果类型，0：文本；1：json'"
     )
-    private String expectedResponseType;
+    private Integer expectedResponseType;
 
     // 预期响应内容
     @Column(name = "expected_response_content",

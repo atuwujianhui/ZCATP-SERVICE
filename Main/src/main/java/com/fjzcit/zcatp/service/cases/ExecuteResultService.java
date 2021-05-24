@@ -1,7 +1,7 @@
 package com.fjzcit.zcatp.service.cases;
 
 import com.fjzcit.zcatp.model.cases.TExecuteResult;
-import com.fjzcit.zcatp.repository.cases.ExecuteResultRepository;
+import com.fjzcit.zcatp.repository.cases.IExecuteResultRepository;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -11,7 +11,7 @@ import java.util.List;
 public class ExecuteResultService {
 
     @Resource
-    public ExecuteResultRepository executeResultRepository;
+    public IExecuteResultRepository executeResultRepository;
 
     public List<TExecuteResult> findAll() {
         return this.executeResultRepository.findAll();

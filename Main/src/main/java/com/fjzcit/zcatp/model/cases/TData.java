@@ -38,19 +38,19 @@ public class TData {
 
     // 所属模块
     @Column(name = "module_id",
-            nullable = false,
+            nullable = true,
             columnDefinition = "int comment '所属模块'")
     private Integer moduleId;
 
     // 所属功能
     @Column(name = "function_id",
-            nullable = false,
+            nullable = true,
             columnDefinition = "int comment '所属功能'")
     private Integer functionId;
 
     // 所属用例
     @Column(name = "case_id",
-            nullable = false,
+            nullable = true,
             columnDefinition = "int comment '用例ID'")
     private Integer caseId;
 

@@ -1,7 +1,7 @@
 package com.fjzcit.zcatp.service.cases;
 
 import com.fjzcit.zcatp.model.cases.TInterfaceCase;
-import com.fjzcit.zcatp.repository.cases.InterfaceCaseRepository;
+import com.fjzcit.zcatp.repository.cases.IInterfaceCaseRepository;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -12,7 +12,7 @@ import java.util.Optional;
 public class InterfaceCaseService {
 
     @Resource
-    InterfaceCaseRepository interfaceCaseRepository;
+    IInterfaceCaseRepository interfaceCaseRepository;
 
     /**
      * 查询所有用例

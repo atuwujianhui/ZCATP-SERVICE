@@ -8,7 +8,7 @@
     "response": {
       "json": {
         "code": 0,
-        "msg": "这是一个带参数的Post请求！"
+        "msg": "这是一个无参数的Get请求！"
       }
     }
   },
@@ -23,7 +23,7 @@
       }
     },
     "response": {
-      "text": "这是一个带参数的Post请求！"
+      "text": "这是一个带参数的Get请求！"
     }
   },
   {
@@ -37,7 +37,7 @@
     }
   },
   {
-    "description": "模拟一个带参数的Post请求！",
+    "description": "模拟一个带表单参数的Post请求！",
     "request": {
       "uri": "/postWithParameter",
       "method": "post",
@@ -47,10 +47,29 @@
       }
     },
     "response": {
-      "text": "这是一个带参数的Post请求！",
       "json": {
         "code": 0,
-        "msg": "这是一个带参数的Post请求！"
+        "msg": "模拟一个带表单参数的Post请求！"
+      }
+    }
+  },
+  {
+    "description": "模拟一个带JSON参数的Post请求！",
+    "request": {
+      "uri": "/postWithJSONParameter",
+      "method": "post",
+      "headers":{
+        "content-type":"application/json"
+      },
+      "json": {
+        "name": "Atu",
+        "age": "24"
+      }
+    },
+    "response": {
+      "json": {
+        "code": 0,
+        "msg": "模拟一个带JSON参数的Post请求！"
       }
     }
   }

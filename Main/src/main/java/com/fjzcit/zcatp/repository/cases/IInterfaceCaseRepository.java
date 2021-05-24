@@ -7,12 +7,12 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface InterfaceCaseRepository extends JpaRepository<TInterfaceCase, Integer> {
+public interface IInterfaceCaseRepository extends JpaRepository<TInterfaceCase, Integer> {
 
     @Query("select t from TInterfaceCase t where t.iteration.id = :iterationId " +
             " AND t.state = 1 ")
-    public List<TInterfaceCase> findByIterationIdId(@Param("iterationId") Integer iterationId);
+    List<TInterfaceCase> findByIterationIdId(@Param("iterationId") Integer iterationId);
 
-    public List<TInterfaceCase> findByIteration_idAndState(Integer iterationId, Integer state);
+    List<TInterfaceCase> findByIteration_idAndState(Integer iterationId, Integer state);
 
 }
