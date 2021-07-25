@@ -3,7 +3,7 @@ server:
   port: 8080
   # servliet配置
   servlet:
-    context-path: /zcatp
+    context-path: /
 
 # 应用名称
 spring:
