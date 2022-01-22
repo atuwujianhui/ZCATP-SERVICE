@@ -1,15 +1,13 @@
 package com.fjzcit.zcatp.controller.jmeter;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "/jmeter")
 public class JMeterController {
 
-    @RequestMapping(value = "/execute", method = RequestMethod.POST)
+    // @RequestMapping(value = "/execute", method = RequestMethod.POST)
+    @PostMapping(value = "/execute")
     public Object execute(@RequestParam String instId) {
         return "Hello 实例-" + instId + "!";
     }

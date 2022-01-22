@@ -2,6 +2,7 @@ package com.fjzcit.zcatp.controller.other;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
@@ -15,10 +16,14 @@ import java.util.Objects;
 @Api(value = "Swagger2接口测试")
 public class SwaggerController {
 
+    // 自定义配置测试
+    @Value("${customize.test:I am Atu}")
+    private String cust_conf_test;
+
     @RequestMapping(value = "/test", method = RequestMethod.GET)
     @ApiOperation(value = "测试方法！", httpMethod = "GET")
     public Object test() {
-        return "Hello World!";
+        return "Hello, " + cust_conf_test + "!";
     }
 
     /**

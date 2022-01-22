@@ -5,15 +5,26 @@ import com.fjzcit.zcatp.common.constant.InterfaceTypeEnum;
 import com.fjzcit.zcatp.common.constant.ResponseTypeEnum;
 import com.fjzcit.zcatp.common.constant.http.ContentTypeEnum;
 import com.fjzcit.zcatp.common.constant.http.RequestMethodEnum;
-import com.fjzcit.zcatp.model.test.*;
+import com.fjzcit.zcatp.model.test.ExecuteBatch;
+import com.fjzcit.zcatp.model.test.ExecuteResult;
+import com.fjzcit.zcatp.model.test.InterfaceCase;
+import com.fjzcit.zcatp.model.test.TestData;
+import com.fjzcit.zcatp.repository.test.IIterationRepository;
 import com.fjzcit.zcatp.util.HttpClientUtils;
+import org.hibernate.annotations.Source;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 @Service
-public class InterfaceService {
+public class IterationService {
+
+    @Source
+    IIterationRepository iterationRepository;
 
     @Resource
     InterfaceCaseService interfaceCaseSvc;
@@ -28,7 +39,7 @@ public class InterfaceService {
      * 执行迭代/增量所属的所有案例
      * @param iterationId
      */
-    public void executeCase(Integer iterationId) {
+    public void execute(Integer iterationId) {
         List<ExecuteResult> resultList = new ArrayList();
         // 查询所有待查询的用例
         List<InterfaceCase> caseList = this.interfaceCaseSvc.findByIterationId(iterationId);
@@ -38,16 +49,6 @@ public class InterfaceService {
         batch.setId(1);
         // 执行用例
         resultList = executeCase(batch.getId(), caseList);
-
-        /*
-        Optional<List<TInterfaceCase>> opt = Optional.ofNullable(caseList);
-        resultList = caseList.stream().map(obj -> executeCase(obj)).collect(Collectors.toList());
-        Optional.ofNullable(caseList).ifPresent(cases ->
-            cases.stream().map(obj -> executeCase(obj)).collect(Collectors.toList())
-        );
-        resultList = Optional.ofNullable(caseList).orElse(new ArrayList<>())
-                .stream().map(iCase -> executeCase(iCase)).collect(Collectors.toList());
-        */
 
         // 保存用例执行结果
         executeResultSvc.saveAll(resultList);
@@ -77,12 +78,14 @@ public class InterfaceService {
             // 拼装接口地址
             String url = iCase.getSystem().getUrl() + iCase.getUri();
             // 获取接口的参数数据（TODO: 仅供测试，待优化，不宜在循环中读取参数）
+            System.out.println(iCase.getId());
             List<TestData> dataList = this.dataSvc.findByCaseId(iCase.getId());
-            // 如果没有数据，则默认为接口无需参数
+            // 如果没有数据，则退出
             if (dataList == null || dataList.isEmpty()) {
                 // 为了保证循环正常运行，需要列表需要添加一个空元素
-                dataList = new ArrayList<>();
-                dataList.add(new TestData());
+                // dataList = new ArrayList<>();
+                // dataList.add(new TestData());
+                break;
             }
             // 遍历参数数据，执行接口测试
             for (TestData data: dataList) {

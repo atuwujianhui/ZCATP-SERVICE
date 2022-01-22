@@ -1,7 +1,7 @@
 package com.fjzcit.zcatp.service.test;
 
-import com.fjzcit.zcatp.model.zcatp.TestData;
-import com.fjzcit.zcatp.repository.cases.ITestDataRepository;
+import com.fjzcit.zcatp.model.test.TestData;
+import com.fjzcit.zcatp.repository.test.ITestDataRepository;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

@@ -1,7 +1,7 @@
 package com.fjzcit.zcatp.service.test;
 
-import com.fjzcit.zcatp.model.zcatp.ExecuteResult;
-import com.fjzcit.zcatp.repository.cases.IExecuteResultRepository;
+import com.fjzcit.zcatp.model.test.ExecuteResult;
+import com.fjzcit.zcatp.repository.test.IExecuteResultRepository;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

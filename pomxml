@@ -26,7 +26,6 @@
         <fastjson.version>1.2.75</fastjson.version>
         <httpclient.version>4.5.13</httpclient.version>
         <mysql.version>6.0.6</mysql.version>
-        <json.version>json</json.version>
     </properties>
 
 <!--    <parent>-->
@@ -191,8 +190,7 @@
         <dependency>
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
-<!--            <version>${json.version}</version>-->
-            <version>20210307</version>
+<!--            <version>20210307</version>-->
         </dependency>
 
     </dependencies>
@@ -226,7 +224,8 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
 <!--                <configuration>-->
-<!--                    <mainClass>com.fjzcit.zcatp.ZcatpApplication</mainClass>-->
+<!--&lt;!&ndash;                    <mainClass>com.fjzcit.zcatp.ZcatpApplication</mainClass>&ndash;&gt;-->
+<!--                    <mainClass>com.fjzcit.zcatp.Application</mainClass>-->
 <!--                </configuration>-->
 <!--                <executions>-->
 <!--                    <execution>-->
@@ -237,6 +236,25 @@
 <!--                    </execution>-->
 <!--                </executions>-->
             </plugin>
+
+            <!-- mybatis generator 自动生成代码插件 -->
+<!--            <plugin>-->
+<!--                <groupId>org.mybatis.generator</groupId>-->
+<!--                <artifactId>mybatis-generator-maven-plugin</artifactId>-->
+<!--                <version>1.4.0</version>-->
+<!--                <configuration>-->
+<!--                    <configurationFile>src/main/resources/generator/generator-config.xml</configurationFile>-->
+<!--                    <overwrite>true</overwrite>-->
+<!--                    <verbose>true</verbose>-->
+<!--                </configuration>-->
+<!--                <dependencies>-->
+<!--                    <dependency>-->
+<!--                        <groupId>mysql</groupId>-->
+<!--                        <artifactId>mysql-connector-java</artifactId>-->
+<!--                        <version>${mysql.version}</version>-->
+<!--                    </dependency>-->
+<!--                </dependencies>-->
+<!--            </plugin>-->
         </plugins>
     </build>
 

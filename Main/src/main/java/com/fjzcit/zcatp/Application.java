@@ -22,7 +22,8 @@ public class Application {
         SpringApplication app = new SpringApplication(Application.class);
         Environment env = app.run(args).getEnvironment();
         System.out.println("启动成功！！！");
-        System.out.println("接口服务根地址: \thttp://localhost:" + env.getProperty("server.port"));
+        System.out.println("接口服务地址: \thttp://localhost:" + env.getProperty("server.port"));
+        System.out.println("测试地址: \t\thttp://localhost:" + env.getProperty("server.port") + "/test");
         System.out.println("Swagger UI：\thttp://localhost:" + env.getProperty("server.port") + "/swagger-ui.html#/");
     }
 
